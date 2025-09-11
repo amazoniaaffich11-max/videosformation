@@ -2,34 +2,69 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Menu Vidéos Google Drive</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mediatransports</title>
 <style>
-  body { font-family: Arial, sans-serif; padding: 20px; }
-  nav a {
-    margin: 0 10px;
-    cursor: pointer;
-    color: #007bff;
-    text-decoration: underline;
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin: 0;
   }
-  nav a:hover { text-decoration: none; }
+
+  h1 {
+    text-align: center;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  nav a {
+    display: block;
+    flex: 1 1 45%; /* Les boutons prennent environ la moitié de l'écran */
+    max-width: 300px; /* Limite la largeur sur grands écrans */
+    padding: 12px 15px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+
+  nav a:hover {
+    background-color: #0056b3;
+  }
+
+  @media (max-width: 500px) {
+    nav a {
+      flex: 1 1 100%; /* Sur petit écran, les boutons prennent toute la largeur */
+    }
+  }
 </style>
 </head>
 <body>
 
-<h1>Menu Vidéos</h1>
+<h1>Guide utilisation LINK</h1>
 
 <nav>
-  <a href="https://drive.google.com/file/d/1uUOL7cEx4n9Ilri62RFr6FwMlLGtcBF7/view" target="_blank">Vidéo 1</a>
-  <a href="https://drive.google.com/file/d/14YdsolkrdkSaRTyPcEOnhYj1nQBGaB-D/view" target="_blank">Vidéo 2</a>
-  <a href="https://drive.google.com/file/d/1xKEzhE9mAykdejMxygT98o0ZYHMnslyd/view" target="_blank">Vidéo 3</a>
-  <a href="https://drive.google.com/file/d/1LWlGKf1-wyUwNRAdnot5dLEqttJgwSXq/view" target="_blank">Vidéo 4</a>
-  <a href="https://drive.google.com/file/d/1khv8fH7Xpn-IZknyfTGnTrUCiyx75LB0/view" target="_blank">Vidéo 5</a>
-  <a href="https://drive.google.com/file/d/1TNdR1vBMkwcCVDwF7oRbfszpJRH3qdXw/view" target="_blank">Vidéo 6</a>
-  <a href="https://drive.google.com/file/d/1avu9PMokxgwFNma1cTVsKFYrCSOEJX8H/view" target="_blank">Vidéo 7</a>
-  <a href="https://drive.google.com/file/d/1dqepHHpXLxJ_jtCxl5GTjXeS2g3f8IRq/view" target="_blank">Vidéo 8</a>
-  <a href="https://drive.google.com/file/d/1X_kHkBb3MCMvdq35eRror-Uoqk3fkIlK/view" target="_blank">Vidéo 9</a>
-  <a href="https://drive.google.com/file/d/1Vyh15Z7PwUQ_VNVgs4o1CFMfouDVs9kI/view" target="_blank">Vidéo 10</a>
+  <a href="https://drive.google.com/file/d/1uUOL7cEx4n9Ilri62RFr6FwMlLGtcBF7/view" target="_blank">1. Consulter les taches à réaliser</a>
+  <a href="https://drive.google.com/file/d/14YdsolkrdkSaRTyPcEOnhYj1nQBGaB-D/view" target="_blank">2. Réceptions des affiches</a>
+  <a href="https://drive.google.com/file/d/1xKEzhE9mAykdejMxygT98o0ZYHMnslyd/view" target="_blank">3. Non réceptions des affiches</a>
+  <a href="https://drive.google.com/file/d/1LWlGKf1-wyUwNRAdnot5dLEqttJgwSXq/view" target="_blank">4. Consulter la liste des affiches à poser</a>
+  <a href="https://drive.google.com/file/d/1khv8fH7Xpn-IZknyfTGnTrUCiyx75LB0/view" target="_blank">5. Valider la pose de l'affiche option 1</a>
+  <a href="https://drive.google.com/file/d/1TNdR1vBMkwcCVDwF7oRbfszpJRH3qdXw/view" target="_blank">6. Valider la pose de l'affiche option 2</a>
+  <a href="https://drive.google.com/file/d/1avu9PMokxgwFNma1cTVsKFYrCSOEJX8H/view" target="_blank">7. Valider la pose de l'affiche option 3</a>
+  <a href="https://drive.google.com/file/d/1dqepHHpXLxJ_jtCxl5GTjXeS2g3f8IRq/view" target="_blank">8. Déclarer une anomalie</a>
+  <a href="https://drive.google.com/file/d/1X_kHkBb3MCMvdq35eRror-Uoqk3fkIlK/view" target="_blank">9. Déclarer une anomalie option récap tâches </a>
+  <a href="https://drive.google.com/file/d/1Vyh15Z7PwUQ_VNVgs4o1CFMfouDVs9kI/view" target="_blank">10. Valider la pose option récap tâches</a>
 </nav>
 
 </body>
 </html>
+
