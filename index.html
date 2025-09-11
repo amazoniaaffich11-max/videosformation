@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu Vidéos</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    nav a { margin: 0 10px; cursor: pointer; color: #007bff; text-decoration: underline; }
-    nav a:hover { text-decoration: none; }
-    video { display: block; margin-top: 20px; width: 100%; max-width: 640px; height: auto; }
-  </style>
+<meta charset="UTF-8">
+<title>Menu Vidéos Google Drive</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  nav a {
+    margin: 0 10px;
+    cursor: pointer;
+    color: #007bff;
+    text-decoration: underline;
+  }
+  nav a:hover { text-decoration: none; }
+  #videoContainer iframe {
+    display: block;
+    margin-top: 20px;
+    width: 640px;
+    height: 480px;
+    border: none;
+  }
+</style>
 </head>
 <body>
 
 <h1>Menu Vidéos</h1>
+
 <nav>
   <a onclick="showVideo('1uUOL7cEx4n9Ilri62RFr6FwMlLGtcBF7')">Vidéo 1</a>
   <a onclick="showVideo('14YdsolkrdkSaRTyPcEOnhYj1nQBGaB-D')">Vidéo 2</a>
@@ -27,18 +38,29 @@
   <a onclick="showVideo('1Vyh15Z7PwUQ_VNVgs4o1CFMfouDVs9kI')">Vidéo 10</a>
 </nav>
 
-<video id="videoPlayer" controls>
-  <source id="videoSource" src="" type="video/mp4">
-  Votre navigateur ne supporte pas la vidéo.
-</video>
+<div id="videoContainer">
+  <!-- L'iframe sera injectée ici -->
+</div>
 
 <script>
+  let currentIframe = null;
+
   function showVideo(id) {
-    const videoPlayer = document.getElementById('videoPlayer');
-    const videoSource = document.getElementById('videoSource');
-    videoSource.src = `https://drive.google.com/uc?export=download&id=${id}`;
-    videoPlayer.load();
-    videoPlayer.play();
+    const container = document.getElementById('videoContainer');
+
+    // Supprime l'iframe existante
+    if (currentIframe) {
+      container.removeChild(currentIframe);
+      currentIframe = null;
+    }
+
+    // Crée un nouvel iframe avec le lecteur Google Drive
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://drive.google.com/file/${id}/preview`;
+    iframe.allow = "autoplay; encrypted-media";
+    container.appendChild(iframe);
+
+    currentIframe = iframe;
   }
 </script>
 
