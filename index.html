@@ -46,7 +46,7 @@
 
     // Crée un nouvel iframe pour la vidéo sélectionnée
     const iframe = document.createElement('iframe');
-    iframe.src = `https://www.dailymotion.com/embed/video/${id}`;
+    iframe.src = `https://www.dailymotion.com/embed/video/${id}?queue-enable=false`;
     iframe.allow = "autoplay; fullscreen";
     container.appendChild(iframe);
 
@@ -56,3 +56,4 @@
 
 </body>
 </html>
+
