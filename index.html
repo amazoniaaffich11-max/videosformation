@@ -1,45 +1,57 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu Vidéos</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    nav a { margin: 0 10px; cursor: pointer; color: #007bff; text-decoration: underline; }
-    nav a:hover { text-decoration: none; }
-    video { display: block; margin-top: 20px; width: 100%; max-width: 640px; height: auto; }
-  </style>
+<meta charset="UTF-8">
+<title>Menu Vidéos Dailymotion</title>
+<script src="https://api.dmcdn.net/all.js"></script>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  nav { background: #333; padding: 10px; }
+  nav a { color: white; margin: 0 10px; text-decoration: none; cursor: pointer; }
+  nav a:hover { text-decoration: underline; }
+  #videoContainer { margin-top: 20px; width: 640px; height: 360px; }
+</style>
 </head>
 <body>
 
 <h1>Menu Vidéos</h1>
 <nav>
-  <a onclick="showVideo('1uUOL7cEx4n9Ilri62RFr6FwMlLGtcBF7')">Vidéo 1</a>
-  <a onclick="showVideo('14YdsolkrdkSaRTyPcEOnhYj1nQBGaB-D')">Vidéo 2</a>
-  <a onclick="showVideo('1xKEzhE9mAykdejMxygT98o0ZYHMnslyd')">Vidéo 3</a>
-  <a onclick="showVideo('1LWlGKf1-wyUwNRAdnot5dLEqttJgwSXq')">Vidéo 4</a>
-  <a onclick="showVideo('1khv8fH7Xpn-IZknyfTGnTrUCiyx75LB0')">Vidéo 5</a>
-  <a onclick="showVideo('1TNdR1vBMkwcCVDwF7oRbfszpJRH3qdXw')">Vidéo 6</a>
-  <a onclick="showVideo('1avu9PMokxgwFNma1cTVsKFYrCSOEJX8H')">Vidéo 7</a>
-  <a onclick="showVideo('1dqepHHpXLxJ_jtCxl5GTjXeS2g3f8IRq')">Vidéo 8</a>
-  <a onclick="showVideo('1X_kHkBb3MCMvdq35eRror-Uoqk3fkIlK')">Vidéo 9</a>
-  <a onclick="showVideo('1Vyh15Z7PwUQ_VNVgs4o1CFMfouDVs9kI')">Vidéo 10</a>
+  <a onclick="showVideo('x9qcn9w')">Vidéo 1</a>
+  <a onclick="showVideo('x9qcna2')">Vidéo 2</a>
+  <a onclick="showVideo('x9qcna6')">Vidéo 3</a>
+  <a onclick="showVideo('x9qcna8')">Vidéo 4</a>
+  <a onclick="showVideo('x9qcnaa')">Vidéo 5</a>
+  <a onclick="showVideo('x9qcna4')">Vidéo 6</a>
+  <a onclick="showVideo('x9qcn9u')">Vidéo 7</a>
+  <a onclick="showVideo('x9qcna0')">Vidéo 8</a>
+  <a onclick="showVideo('x9qcn9y')">Vidéo 9</a>
+  <a onclick="showVideo('x9qco7e')">Vidéo 10</a>
 </nav>
 
-<video id="videoPlayer" controls>
-  <source id="videoSource" src="" type="video/mp4">
-  Votre navigateur ne supporte pas la vidéo.
-</video>
+<div id="videoContainer"></div>
 
 <script>
-  function showVideo(id) {
-    const videoPlayer = document.getElementById('videoPlayer');
-    const videoSource = document.getElementById('videoSource');
-    videoSource.src = `https://drive.google.com/uc?export=download&id=${id}`;
-    videoPlayer.load();
-    videoPlayer.play();
-  }
+let player = null;
+
+function showVideo(id) {
+    // Supprime l'ancien lecteur si existant
+    if (player) {
+        player.destroy();
+        player = null;
+    }
+
+    // Crée un nouveau lecteur Dailymotion
+    player = DM.player(document.getElementById('videoContainer'), {
+        video: id,
+        width: '640',
+        height: '360',
+        params: {
+            autoplay: false,
+            'endscreen-enable': false, // désactive l’écran de fin
+            'queue-enable': false      // désactive la file d’attente
+        }
+    });
+}
 </script>
 
 </body>
