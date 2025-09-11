@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Menu Vidéos Dailymotion</title>
+<script src="https://api.dmcdn.net/all.js"></script>
 <style>
   body { font-family: Arial, sans-serif; padding: 20px; }
   nav { background: #333; padding: 10px; }
   nav a { color: white; margin: 0 10px; text-decoration: none; cursor: pointer; }
   nav a:hover { text-decoration: underline; }
-  .video-container { margin-top: 20px; }
-  iframe { width: 640px; height: 360px; border: none; }
+  #videoContainer { margin-top: 20px; width: 640px; height: 360px; }
 </style>
 </head>
 <body>
@@ -28,32 +28,31 @@
   <a onclick="showVideo('x9qco7e')">Vidéo 10</a>
 </nav>
 
-<div class="video-container" id="videoContainer">
-  <!-- L’iframe de la vidéo sélectionnée sera inséré ici -->
-</div>
+<div id="videoContainer"></div>
 
 <script>
-  let currentIframe = null;
+let player = null;
 
-  function showVideo(id) {
-    const container = document.getElementById('videoContainer');
-
-    // Supprime l’iframe existante
-    if (currentIframe) {
-      container.removeChild(currentIframe);
-      currentIframe = null;
+function showVideo(id) {
+    // Supprime l'ancien lecteur si existant
+    if (player) {
+        player.destroy();
+        player = null;
     }
 
-    // Crée un nouvel iframe pour la vidéo sélectionnée
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.dailymotion.com/embed/video/${id}?queue-enable=false`;
-    iframe.allow = "autoplay; fullscreen";
-    container.appendChild(iframe);
-
-    currentIframe = iframe;
-  }
+    // Crée un nouveau lecteur Dailymotion
+    player = DM.player(document.getElementById('videoContainer'), {
+        video: id,
+        width: '640',
+        height: '360',
+        params: {
+            autoplay: false,
+            'endscreen-enable': false, // désactive l’écran de fin
+            'queue-enable': false      // désactive la file d’attente
+        }
+    });
+}
 </script>
 
 </body>
 </html>
-
