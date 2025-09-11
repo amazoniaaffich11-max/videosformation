@@ -12,13 +12,6 @@
     text-decoration: underline;
   }
   nav a:hover { text-decoration: none; }
-  #videoContainer iframe {
-    display: block;
-    margin-top: 20px;
-    width: 640px;
-    height: 480px;
-    border: none;
-  }
 </style>
 </head>
 <body>
@@ -26,43 +19,17 @@
 <h1>Menu Vidéos</h1>
 
 <nav>
-  <a onclick="showVideo('https://drive.google.com/file/d/1uUOL7cEx4n9Ilri62RFr6FwMlLGtcBF7/view?usp=sharing')">Vidéo 1</a>
-  <a onclick="showVideo('https://drive.google.com/file/d/14YdsolkrdkSaRTyPcEOnhYj1nQBGaB-D/view?usp=sharing')">Vidéo 2</a>
-  <a onclick="showVideo('https://drive.google.com/file/d/1xKEzhE9mAykdejMxygT98o0ZYHMnslyd/view?usp=sharing')">Vidéo 3</a>
-  <a onclick="showVideo('https://drive.google.com/file/d/1LWlGKf1-wyUwNRAdnot5dLEqttJgwSXq/view?usp=sharing')">Vidéo 4</a>
-  <a onclick="showVideo('https://drive.google.com/file/d/1khv8fH7Xpn-IZknyfTGnTrUCiyx75LB0/view?usp=sharing')">Vidéo 5</a>
-  <a onclick="showVideo('https://drive.google.com/file/d/1TNdR1vBMkwcCVDwF7oRbfszpJRH3qdXw/view?usp=sharing')">Vidéo 6</a>
-  <a onclick="showVideo('https://drive.google.com/file/d/1avu9PMokxgwFNma1cTVsKFYrCSOEJX8H/view?usp=sharing')">Vidéo 7</a>
-  <a onclick="showVideo('https://drive.google.com/file/d/1dqepHHpXLxJ_jtCxl5GTjXeS2g3f8IRq/view?usp=sharing')">Vidéo 8</a>
-  <a onclick="showVideo('https://drive.google.com/file/d/1X_kHkBb3MCMvdq35eRror-Uoqk3fkIlK/view?usp=sharing')">Vidéo 9</a>
-  <a onclick="showVideo('https://drive.google.com/file/d/1Vyh15Z7PwUQ_VNVgs4o1CFMfouDVs9kI/view?usp=sharing')">Vidéo 10</a>
+  <a href="https://drive.google.com/file/d/1uUOL7cEx4n9Ilri62RFr6FwMlLGtcBF7/view" target="_blank">Vidéo 1</a>
+  <a href="https://drive.google.com/file/d/14YdsolkrdkSaRTyPcEOnhYj1nQBGaB-D/view" target="_blank">Vidéo 2</a>
+  <a href="https://drive.google.com/file/d/1xKEzhE9mAykdejMxygT98o0ZYHMnslyd/view" target="_blank">Vidéo 3</a>
+  <a href="https://drive.google.com/file/d/1LWlGKf1-wyUwNRAdnot5dLEqttJgwSXq/view" target="_blank">Vidéo 4</a>
+  <a href="https://drive.google.com/file/d/1khv8fH7Xpn-IZknyfTGnTrUCiyx75LB0/view" target="_blank">Vidéo 5</a>
+  <a href="https://drive.google.com/file/d/1TNdR1vBMkwcCVDwF7oRbfszpJRH3qdXw/view" target="_blank">Vidéo 6</a>
+  <a href="https://drive.google.com/file/d/1avu9PMokxgwFNma1cTVsKFYrCSOEJX8H/view" target="_blank">Vidéo 7</a>
+  <a href="https://drive.google.com/file/d/1dqepHHpXLxJ_jtCxl5GTjXeS2g3f8IRq/view" target="_blank">Vidéo 8</a>
+  <a href="https://drive.google.com/file/d/1X_kHkBb3MCMvdq35eRror-Uoqk3fkIlK/view" target="_blank">Vidéo 9</a>
+  <a href="https://drive.google.com/file/d/1Vyh15Z7PwUQ_VNVgs4o1CFMfouDVs9kI/view" target="_blank">Vidéo 10</a>
 </nav>
-
-<div id="videoContainer">
-  <!-- L'iframe sera injectée ici -->
-</div>
-
-<script>
-  let currentIframe = null;
-
-  function showVideo(url) {
-    const container = document.getElementById('videoContainer');
-
-    // Supprime l'iframe existante si elle existe
-    if (currentIframe) {
-      container.removeChild(currentIframe);
-      currentIframe = null;
-    }
-
-    // Crée un nouvel iframe pour la vidéo sélectionnée
-    const iframe = document.createElement('iframe');
-    iframe.src = url;
-    iframe.allow = "autoplay; encrypted-media";
-    container.appendChild(iframe);
-
-    currentIframe = iframe;
-  }
-</script>
 
 </body>
 </html>
