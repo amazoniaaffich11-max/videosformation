@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Menu Vidéoss Google Drive</title>
+<title>Menu Vidéos Google Drive</title>
 <style>
   body { font-family: Arial, sans-serif; padding: 20px; }
   nav a {
@@ -26,16 +26,16 @@
 <h1>Menu Vidéos</h1>
 
 <nav>
-  <a onclick="showVideo('1uUOL7cEx4n9Ilri62RFr6FwMlLGtcBF7')">Vidéo 1</a>
-  <a onclick="showVideo('14YdsolkrdkSaRTyPcEOnhYj1nQBGaB-D')">Vidéo 2</a>
-  <a onclick="showVideo('1xKEzhE9mAykdejMxygT98o0ZYHMnslyd')">Vidéo 3</a>
-  <a onclick="showVideo('1LWlGKf1-wyUwNRAdnot5dLEqttJgwSXq')">Vidéo 4</a>
-  <a onclick="showVideo('1khv8fH7Xpn-IZknyfTGnTrUCiyx75LB0')">Vidéo 5</a>
-  <a onclick="showVideo('1TNdR1vBMkwcCVDwF7oRbfszpJRH3qdXw')">Vidéo 6</a>
-  <a onclick="showVideo('1avu9PMokxgwFNma1cTVsKFYrCSOEJX8H')">Vidéo 7</a>
-  <a onclick="showVideo('1dqepHHpXLxJ_jtCxl5GTjXeS2g3f8IRq')">Vidéo 8</a>
-  <a onclick="showVideo('1X_kHkBb3MCMvdq35eRror-Uoqk3fkIlK')">Vidéo 9</a>
-  <a onclick="showVideo('1Vyh15Z7PwUQ_VNVgs4o1CFMfouDVs9kI')">Vidéo 10</a>
+  <a onclick="showVideo('https://drive.google.com/file/d/1uUOL7cEx4n9Ilri62RFr6FwMlLGtcBF7/view?usp=sharing')">Vidéo 1</a>
+  <a onclick="showVideo('https://drive.google.com/file/d/14YdsolkrdkSaRTyPcEOnhYj1nQBGaB-D/view?usp=sharing')">Vidéo 2</a>
+  <a onclick="showVideo('https://drive.google.com/file/d/1xKEzhE9mAykdejMxygT98o0ZYHMnslyd/view?usp=sharing')">Vidéo 3</a>
+  <a onclick="showVideo('https://drive.google.com/file/d/1LWlGKf1-wyUwNRAdnot5dLEqttJgwSXq/view?usp=sharing')">Vidéo 4</a>
+  <a onclick="showVideo('https://drive.google.com/file/d/1khv8fH7Xpn-IZknyfTGnTrUCiyx75LB0/view?usp=sharing')">Vidéo 5</a>
+  <a onclick="showVideo('https://drive.google.com/file/d/1TNdR1vBMkwcCVDwF7oRbfszpJRH3qdXw/view?usp=sharing')">Vidéo 6</a>
+  <a onclick="showVideo('https://drive.google.com/file/d/1avu9PMokxgwFNma1cTVsKFYrCSOEJX8H/view?usp=sharing')">Vidéo 7</a>
+  <a onclick="showVideo('https://drive.google.com/file/d/1dqepHHpXLxJ_jtCxl5GTjXeS2g3f8IRq/view?usp=sharing')">Vidéo 8</a>
+  <a onclick="showVideo('https://drive.google.com/file/d/1X_kHkBb3MCMvdq35eRror-Uoqk3fkIlK/view?usp=sharing')">Vidéo 9</a>
+  <a onclick="showVideo('https://drive.google.com/file/d/1Vyh15Z7PwUQ_VNVgs4o1CFMfouDVs9kI/view?usp=sharing')">Vidéo 10</a>
 </nav>
 
 <div id="videoContainer">
@@ -45,18 +45,18 @@
 <script>
   let currentIframe = null;
 
-  function showVideo(id) {
+  function showVideo(url) {
     const container = document.getElementById('videoContainer');
 
-    // Supprime l'iframe existante
+    // Supprime l'iframe existante si elle existe
     if (currentIframe) {
       container.removeChild(currentIframe);
       currentIframe = null;
     }
 
-    // Crée un nouvel iframe avec le lecteur Google Drive
+    // Crée un nouvel iframe pour la vidéo sélectionnée
     const iframe = document.createElement('iframe');
-    iframe.src = `https://drive.google.com/file/${id}/preview`;
+    iframe.src = url;
     iframe.allow = "autoplay; encrypted-media";
     container.appendChild(iframe);
 
@@ -66,4 +66,3 @@
 
 </body>
 </html>
-
