@@ -2,49 +2,57 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Menu et Vidéos</title>
+<title>Menu Vidéos Dailymotion</title>
 <style>
   body { font-family: Arial, sans-serif; }
   nav { background: #333; padding: 10px; }
   nav a { color: white; margin: 0 10px; text-decoration: none; }
   nav a:hover { text-decoration: underline; }
   .video-container { margin-top: 20px; }
+  iframe { width: 640px; height: 360px; display: none; border: none; }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#" onclick="showVideo('video1')">Vidéo 1</a>
-  <a href="#" onclick="showVideo('video2')">Vidéo 2</a>
-  <a href="#" onclick="showVideo('video3')">Vidéo 3</a>
+  <a href="#" onclick="showVideo('x9qcn9w')">Vidéo 1</a>
+  <a href="#" onclick="showVideo('x9qcna2')">Vidéo 2</a>
+  <a href="#" onclick="showVideo('x9qcna6')">Vidéo 3</a>
+  <a href="#" onclick="showVideo('x9qcna8')">Vidéo 4</a>
+  <a href="#" onclick="showVideo('x9qcnaa')">Vidéo 5</a>
+  <a href="#" onclick="showVideo('x9qcna4')">Vidéo 6</a>
+  <a href="#" onclick="showVideo('x9qcn9u')">Vidéo 7</a>
+  <a href="#" onclick="showVideo('x9qcna0')">Vidéo 8</a>
+  <a href="#" onclick="showVideo('x9qcn9y')">Vidéo 9</a>
+  <a href="#" onclick="showVideo('x9qco7e')">Vidéo 10</a>
 </nav>
 
-<div class="video-container">
-  <video id="video1" width="600" controls>
-    <source src="video1.mp4" type="video/mp4">
-  </video>
-  <video id="video2" width="600" controls style="display:none;">
-    <source src="video2.mp4" type="video/mp4">
-  </video>
-  <video id="video3" width="600" controls style="display:none;">
-    <source src="video3.mp4" type="video/mp4">
-  </video>
+<div class="video-container" id="videoContainer">
+  <!-- Les iframes seront créées via JS pour éviter autoplay multiple -->
 </div>
 
 <script>
-  const videos = document.querySelectorAll('video');
+  const videoIds = [
+    'x9qcn9w','x9qcna2','x9qcna6','x9qcna8','x9qcnaa',
+    'x9qcna4','x9qcn9u','x9qcna0','x9qcn9y','x9qco7e'
+  ];
+
+  let currentIframe = null;
 
   function showVideo(id) {
-    videos.forEach(video => {
-      if(video.id === id) {
-        video.style.display = 'block';
-        video.play();
-      } else {
-        video.pause();
-        video.currentTime = 0;
-        video.style.display = 'none';
-      }
-    });
+    const container = document.getElementById('videoContainer');
+
+    // Supprime l'iframe existante si elle existe
+    if (currentIframe) {
+      container.removeChild(currentIframe);
+      currentIframe = null;
+    }
+
+    // Crée un nouvel iframe pour la vidéo sélectionnée
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.dailymotion.com/embed/video/${id}?autoplay=1`;
+    container.appendChild(iframe);
+    currentIframe = iframe;
   }
 </script>
 
